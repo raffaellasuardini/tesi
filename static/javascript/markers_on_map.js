@@ -6,7 +6,13 @@ var reloadMap = false
 
 //ricevo le coordinate dalla mia api
 async function getCoordinates() {
-  var url = 'http://127.0.0.1:8000/api/coord/'
+  if (window.location.href.includes("127.0.0.1")){
+      var url = 'http://127.0.0.1:8000/api/coord/'
+  }
+  else {
+      var url = 'http://168.119.157.156/api/coord/'
+  }
+
   let response = await fetch(url, {
     method: "GET",
     headers: {"Content-type": "application/json;charset=UTF-8"}
