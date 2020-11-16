@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Mappa</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="{%static "css/style.css"%}">
+  </head>
+  <body>
+    <div id="map"></div>
+      <form action="index.html" method="post">
+        <input type="text" id="address" name="address" placeholder="es. Via Roma, 13 Udine">
+        <input type="text" id="lat" name="lat" value="">
+        <input type="text" id="lng" name="lng" value="" >
+        <label for="where">Cerca l'indirizzo</label>
+        <input type="submit" name="submit">
+      </form>
+    {% csrf_token %}
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBYahCjU7pZVFBrG6OKr8inr_NOtcsjgig&callback=initMap&libraries=places&v=weekly"
+      async defer ></script>
+    <script src="{%static "javascript/index.js"%}" type="text/javascript" charset="utf-8"></script>
+  </body>
+</html>

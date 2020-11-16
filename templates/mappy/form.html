@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="it" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Form</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" >
+    <link rel="stylesheet" href="{%static "css/style.css"%}">
+  </head>
+  <body>
+    <div class ="container">
+      <div id="map"></div>
+      <form method="post">
+        {{form.as_p}}
+        {%csrf_token%}
+        <input type="submit" class ="btn btn-primary" value="invialo">
+      </form>
+    </div>
+    <script src= "https://maps.googleapis.com/maps/api/js?key=AIzaSyBYahCjU7pZVFBrG6OKr8inr_NOtcsjgig&callback=initMap&libraries=places&v=weekly"
+        async defer ></script>
+      <script src="{%static "javascript/form.js"%}" type="text/javascript" charset="utf-8"></script>
+  </body>
+</html>
