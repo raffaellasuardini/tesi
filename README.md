@@ -43,9 +43,11 @@ python manage.py createsuperuser
 ## API Usage
 
 You can only use POST to insert new coords with a request to the endpoint:
-[http://YOUR_DOMAIN/api/coord/](http://YOUR_DOMAIN/api/coord/)
+```bash
+http://YOUR_DOMAIN/api/coord/
+```
 
-JSON Request:
+JSON Request format:
 ```bash
 {
   object_label: 'label for the point',
