@@ -42,12 +42,17 @@ python manage.py createsuperuser
 
 ## API Usage
 
-connect to this endpoint:
-[http://168.119.157.156/api/coord/](http://168.119.157.156/api/coord/)
+You can only use POST to insert new coords with a request to the endpoint:
+[http://YOUR_DOMAIN/api/coord/](http://YOUR_DOMAIN/api/coord/)
 
-You can only use POST to insert : 
- * Object label
- * Latitude
- * Longitude
+JSON Request:
+```bash
+{
+  object_label: 'label for the point',
+  lat: 'latitude',
+  lng: 'longitude'
+}
+```
+
 
 
