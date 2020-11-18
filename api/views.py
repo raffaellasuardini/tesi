@@ -14,8 +14,3 @@ class CoordRetrieveUpdateDestroy (generics.RetrieveUpdateDestroyAPIView):
     queryset = Coord.objects.all()
     serializer_class = CoordLabelROSerializer
     permission_classes = [IsAdminUser]
-
-# class CoordViewSet (viewsets.ModelViewSet):
-#     queryset = Coord.objects.all()
-#     serializer_class = CoordSerializer
-#     permission_classes = [AdminPermission]
