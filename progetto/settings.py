@@ -11,8 +11,10 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 from pathlib import Path, os
+import environ
 #from django.conf.global_settings import DATETIME_INPUT_FORMATS
 #DATETIME_INPUT_FORMATS += ('%Y-%m-%d %I:%M %p', )
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
@@ -22,8 +24,21 @@ TEMPLATE_DIR = os.path.join(BASE_DIR, 'templates')
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
+# django-environ
+env = environ.Env(
+    # set casting, default value
+    DEBUG=(bool, False)
+)
+# reading .env file
+environ.Env.read_env(env_file=os.path.join(BASE_DIR, '.env'))
+
+# False if not in os.environ
+DEBUG = env('DEBUG')
+
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'b(yw+qz0b*o0$*%ug5ci2zq_^r@(i2^xxo+djcizudgw_r!wir'
+SECRET_KEY = env('SECRET_KEY')
+
+GOOGLE_MAP_KEY = env('GOOGLE_MAP_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False

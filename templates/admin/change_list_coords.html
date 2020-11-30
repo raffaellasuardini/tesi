@@ -9,7 +9,7 @@
     <div id="map" style="width: 100%; height: 400px;"></div>
   </div>
   <script
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDHcYWrV1mH5HPRmFdyKaBAtulHgXr8NEI&callback=initMap&libraries=places&v=weekly"
+    src="https://maps.googleapis.com/maps/api/js?key={{ GOOGLE_MAP_KEY }}&callback=initMap&libraries=places&v=weekly"
     async defer ></script>
   <script src="{%static "javascript/markers_on_map.js"%}" type="text/javascript" charset="utf-8"></script>
 {% endblock %}
