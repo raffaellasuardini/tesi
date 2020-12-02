@@ -3,32 +3,36 @@
 Mappy is a Django application to store and show object location on GoogleMaps .
 
 ## Requirement
-1. [Django](https://https://www.djangoproject.com/) version 3.x
-2. Python
+1. [Django](https://https://www.djangoproject.com/) (tested on version 3.1)
+2. Python (tested on version 3.8)
+3. Google maps API key with Maps JavaScript API enabled [get and API key instruction](https://developers.google.com/maps/documentation/javascript/get-api-key)
 
 ## Installation
+1. clone this project
+```bash
+git clone https://github.com/raffaellasuardini/tesi.git
+```
 
-1. create a virtual env
+2. create a virtual env
 
 ```bash
 python -m venv env
 source env/bin/activate
 ```
 
-2. install [Django Rest Framework](https://www.django-rest-framework.org/)
+3. install [Django Rest Framework](https://www.django-rest-framework.org/)
 
 ```bash
 pip install djangorestframework
 ```
-3. install [Django-Environment
+4. install [Django-Environment
 ](https://django-environ.readthedocs.io/en/latest/)
 
 ```bash
 pip install django-environ
 ```
-Note: no need to add it to INSTALLED_APPS inside django's settings
 
-4. create a .env file like this:
+5. create a .env file like this:
 ```bash
 DEBUG=ON
 SECRET_KEY=your_secret_key
