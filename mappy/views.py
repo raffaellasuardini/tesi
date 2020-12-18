@@ -4,7 +4,7 @@ from .models import Coord
 
 
 def index(request):
-    return HttpResponse("Sei sulla homepage")
+    return render(request, 'mappy/index.html', {})
     # return render(request,'mappy/index.html')
 
 # def coord_form_view (request):

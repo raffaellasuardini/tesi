@@ -18,7 +18,7 @@ from django.urls import path, include
 from mappy import views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('admin/', admin.site.urls, name= 'admin'),
     path('api-auth/', include('rest_framework.urls')),
 
     path('',views.index, name='index' ),
