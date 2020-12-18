@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="eng" dir="ltr">
+  <head>
+    <title>Mappy Homepage</title>
+    <link rel="icon" type="image/jpg" href="{%static 'images/favicon.png'%}"/>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+
+    <link rel="stylesheet"  href="{% static 'css/index.css' %}">
+  </head>
+  <body>
+    <div class="view" style="background-image: url('{%static "images/map.jpg"%}'); background-repeat: no-repeat; background-size: cover; background-position: center center;">
+<!-- NAVBAR -->
+    <div class="top-header">
+      <div class="row">
+        <div class="col-md-12 text-right"><a href="{% url 'admin:index' %}"><span class="glyphicon glyphicon-log-in"></span> Login</a></div>
+      </div>
+    </div>
+<!-- END NAVBAR  -->
+      <div class="container">
+        <div class="jumbotron">
+          <div class="container-fluid">
+            <h1>Mappy</h1>
+            <p>This project uses restful APIs to store the coordinates of objects and views their real time position on a map</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  </body>
+</html>
