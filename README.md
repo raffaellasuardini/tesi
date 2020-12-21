@@ -73,3 +73,4 @@ JSON Request format:
   lng: 'longitude'
 }
 ```
+If object_label exist API updates coords, else a new one is created.
