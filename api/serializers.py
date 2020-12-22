@@ -9,12 +9,12 @@ class CoordSerializer (serializers.ModelSerializer):
 
     class Meta:
         model = Coord
-        fields = ['id','object_label', 'lat', 'lng', 'last_update']
+        fields = ['id','object_label', 'lat', 'lng', 'last_update', 'source']
     #crea un oggetto coord se la label non è presente in db
     def create(self, validated_data):
         coord, created = Coord.objects.update_or_create(
         object_label=validated_data.get('object_label', None),
-        defaults={'lat': validated_data.get('lat', None), 'lng': validated_data.get('lng', None)})
+        defaults={'lat': validated_data.get('lat', None), 'lng': validated_data.get('lng', None), 'source':'API'})
         return coord
 
 #serializer per updare: la label non è modificabile
@@ -23,4 +23,4 @@ class CoordLabelROSerializer (serializers.ModelSerializer):
     object_label = serializers.ReadOnlyField()
     class Meta:
         model = Coord
-        fields = ['id','object_label', 'lat', 'lng', 'last_update']
+        fields = ['id','object_label', 'lat', 'lng', 'last_update', 'source']
