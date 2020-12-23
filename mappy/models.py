@@ -8,5 +8,9 @@ class Coord (models.Model):
     last_update = models.DateTimeField(auto_now=True)
     source = models.CharField(max_length=255, default="backoffice")
 
+    def save(self, *args, **kwargs):
+        self.source = "backoffice"
+        super().save(*args, **kwargs)
+
     def __str__(self):
         return self.object_label
