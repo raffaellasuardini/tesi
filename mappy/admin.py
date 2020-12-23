@@ -10,6 +10,12 @@ from django.http import JsonResponse
 class CoordAdmin(admin.ModelAdmin):
     change_list_template = 'admin/change_list_coords.html'
     list_display = ('object_label','lat','lng', 'last_update', 'source')
+    exclude = ('source',)
+
+    def save_model(self, request, obj, form, change):
+        obj.source= 'backoffice'
+        obj.save()
+        return super().save_model(request, obj, form, change)
 
     def changelist_view(self, request, extra_context=None):
         extra_context = extra_context or {}
