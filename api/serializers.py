@@ -6,7 +6,8 @@ from mappy.models import Coord
 class CoordSerializer (serializers.ModelSerializer):
     # l'attributo last_update sarà assegnato automaticamente, e quindi non modificabile
     last_update = serializers.DateTimeField(format="%d/%m/%YT%H:%M:%S", read_only=True)
-
+    source = serializers.ReadOnlyField()
+    
     readonly_fields = ['last_update', 'source']
     class Meta:
         model = Coord
@@ -23,7 +24,7 @@ class CoordLabelROSerializer (serializers.ModelSerializer):
     last_update = serializers.DateTimeField(format="%d-%m-%YT%H:%M:%S", read_only=True)
     object_label = serializers.ReadOnlyField()
     source = serializers.ReadOnlyField()
-    
+
     class Meta:
         model = Coord
         fields = ['id','object_label', 'lat', 'lng', 'last_update', 'source']
