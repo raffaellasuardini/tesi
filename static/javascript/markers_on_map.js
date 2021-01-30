@@ -7,10 +7,10 @@ var reloadMap = false
 //ricevo le coordinate dalla mia api
 async function getCoordinates() {
   if (window.location.href.includes("127.0.0.1")){
-      var url = 'http://127.0.0.1:8000/api/coord/'
+      var url = 'http://127.0.0.1:8000/api/coord/list/?token=g6dkzUBMeO6bfLP'
   }
   else {
-      var url = 'http://168.119.157.156/api/coord/'
+      var url = 'http://168.119.157.156/api/coord/list/?token=g6dkzUBMeO6bfLP'
   }
 
   let response = await fetch(url, {

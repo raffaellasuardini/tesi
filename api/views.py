@@ -1,16 +1,21 @@
+from django.http import HttpResponse
 from rest_framework import generics
-from rest_framework.permissions import IsAdminUser
-from rest_framework.decorators import action
 from mappy.models import Coord
-from .serializers import CoordSerializer , CoordLabelROSerializer
+from .serializers import CoordSerializer
 
 
-class CoordListCreate (generics.ListCreateAPIView):
+class CoordCreate (generics.CreateAPIView):
     queryset = Coord.objects.all()
     serializer_class = CoordSerializer
 
 
-class CoordRetrieveUpdateDestroy (generics.RetrieveUpdateDestroyAPIView):
-    queryset = Coord.objects.all()
-    serializer_class = CoordLabelROSerializer
-    permission_classes = [IsAdminUser]
+class CoordList (generics.ListAPIView):
+    serializer_class = CoordSerializer
+
+
+    def get_queryset(self):
+        token = self.request.query_params.get('token', None)
+        if token == 'g6dkzUBMeO6bfLP':
+            return Coord.objects.all()
+        else:
+            return HttpResponse(status=500)

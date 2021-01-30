@@ -2,6 +2,6 @@ from django.urls import include, path
 from . import views
 
 urlpatterns = [
-    path ('coord/', views.CoordListCreate.as_view()),
-    path ('coord/<int:pk>', views.CoordRetrieveUpdateDestroy.as_view()),
+    path ('coord/list/', views.CoordList.as_view()),
+    path ('coord/', views.CoordCreate.as_view()),
 ]
