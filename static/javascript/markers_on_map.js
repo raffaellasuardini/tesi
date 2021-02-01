@@ -3,7 +3,7 @@ var markers = []
 var totalMarkers = -1
 var timeChanged = 0
 var reloadMap = false
-var token = document.getElementById('token')
+var token = document.getElementById('token').value
 
 //ricevo le coordinate dalla mia api
 async function getCoordinates() {
