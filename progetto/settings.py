@@ -40,6 +40,8 @@ SECRET_KEY = env('SECRET_KEY')
 
 GOOGLE_MAP_KEY = env('GOOGLE_MAP_KEY')
 
+TOKEN = env('TOKEN')
+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 

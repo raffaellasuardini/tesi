@@ -6,7 +6,7 @@ Mappy is a Django application to store and show object location on GoogleMaps .
 1. [Django](https://https://www.djangoproject.com/) (tested on version 3.1)
 2. Python (tested on version 3.8)
 3. Google maps API key with Maps JavaScript API enabled [get and API key instruction](https://developers.google.com/maps/documentation/javascript/get-api-key)
-
+4. Generates a random token to protect list of coords which is used for real-time map inside Django
 ## Installation
 1. clone this project
 ```bash
@@ -37,6 +37,7 @@ pip install django-environ
 DEBUG=ON
 SECRET_KEY=your_secret_key
 GOOGLE_MAP_KEY=your_api_key
+TOKEN=random_token_for_GET
 ```
 
 ## Usage
@@ -63,6 +64,10 @@ python manage.py createsuperuser
 You can only use POST to insert new coords with a request to the endpoint:
 ```bash
 http://YOUR_DOMAIN/api/coord/
+```
+If you need a list of coords with GET method use this endpoint with your token:
+```bash
+http://YOUR_DOMAIN/api/coord/list/?token=YOUR_TOKEN
 ```
 
 JSON Request format:

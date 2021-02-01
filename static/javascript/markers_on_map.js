@@ -3,14 +3,15 @@ var markers = []
 var totalMarkers = -1
 var timeChanged = 0
 var reloadMap = false
+var token = document.getElementById('token')
 
 //ricevo le coordinate dalla mia api
 async function getCoordinates() {
   if (window.location.href.includes("127.0.0.1")){
-      var url = 'http://127.0.0.1:8000/api/coord/list/?token=g6dkzUBMeO6bfLP'
+      var url = 'http://127.0.0.1:8000/api/coord/list/?token='+token
   }
   else {
-      var url = 'http://168.119.157.156/api/coord/list/?token=g6dkzUBMeO6bfLP'
+      var url = 'http://168.119.157.156/api/coord/list/?token='+token
   }
 
   let response = await fetch(url, {

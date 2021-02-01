@@ -3,8 +3,6 @@ from .models import Coord
 
 from django.conf import settings
 
-from django.http import JsonResponse
-
 # Register your models here.
 @admin.register(Coord)
 class CoordAdmin(admin.ModelAdmin):
@@ -17,7 +15,11 @@ class CoordAdmin(admin.ModelAdmin):
         obj.save()
         return super().save_model(request, obj, form, change)
 
-    def changelist_view(self, request, extra_context=None):
+    def changelist_view(self, request, extra_context=None, extra_context_token=None):
         extra_context = extra_context or {}
-        extra_context['GOOGLE_MAP_KEY'] = settings.GOOGLE_MAP_KEY
-        return super(CoordAdmin, self).changelist_view(request, extra_context=extra_context)
+        my_context = {
+            'GOOGLE_MAP_KEY' : settings.GOOGLE_MAP_KEY,
+            'TOKEN' : settings.TOKEN
+        }
+
+        return super(CoordAdmin, self).changelist_view(request, extra_context=my_context)
