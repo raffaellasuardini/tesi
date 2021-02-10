@@ -5,6 +5,17 @@
 {% block pretitle %}
   {{ block.super }}
   <h1>Mappa real-time</h1>
+    <div class="actions" style="padding: 10px; color: #999; ">
+      <label for="seconds">La mappa viene aggiornata ogni:</label>
+      <select id="seconds">
+        <option value="1">1 secondo</option>
+        <option value="2">2 secondi</option>
+        <option value="3">3 secondi</option>
+        <option value="5">5 secondi</option>
+        <option value="10">10 secondi</option>
+        <option value="30">30 secondi</option>
+      </select>
+    </div>
   <div id="mappa" style="margin-bottom: 20px">
     <div id="map" style="width: 100%; height: 400px;"></div>
   </div>

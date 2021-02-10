@@ -4,6 +4,22 @@ var totalMarkers = -1
 var timeChanged = 0
 var reloadMap = false
 var token = document.getElementById('token').value
+var sec = document.getElementById('seconds')
+
+if (!localStorage.getItem("cycles")){
+  localStorage.setItem("cycles", 1);
+}
+
+document.getElementById("seconds").value = localStorage.getItem("cycles")
+
+//applico listener al select e imposto localStorage
+sec.addEventListener("change", function(){
+  var choise = sec.value;
+  console.log("aggiorno in", choise);
+  localStorage.setItem("cycles", choise);
+});
+
+
 
 //ricevo le coordinate dalla mia api
 async function getCoordinates() {
@@ -67,6 +83,7 @@ function insertMarkers(coords) {
 
 // richiama getCoordinates, in base alle modifiche delle coordinate aggiorna la pagina
 // oppure cancella e riposiziona i markers
+// la mappa viene aggiornata in base al valore di "cycles" di localStorage
 async function repeat(){
 
   let coordsToPrint = await getCoordinates()
@@ -95,10 +112,10 @@ async function repeat(){
     markers = [];
     insertMarkers(coordsToPrint)
   }
-
-  t = setTimeout( function () {
+console.log("VALORE", localStorage.getItem("cycles"))
+  setTimeout( function () {
     repeat();
-  },5000)
+  }, localStorage.getItem("cycles")*1000 )
 }
 
 // funzione che aggiunge un marker e aggiunge infowindow
