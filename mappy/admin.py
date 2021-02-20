@@ -8,7 +8,7 @@ from django.conf import settings
 class CoordAdmin(admin.ModelAdmin):
     change_list_template = 'admin/change_list_coords.html'
     list_display = ('object_label', 'last_update', 'source')
-    exclude = ('source')
+    exclude = ('source', )
 
     def save_model(self, request, obj, form, change):
         obj.source= 'backoffice'
